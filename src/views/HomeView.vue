@@ -9,15 +9,44 @@ type card = {
   card2?: string;
 }
 
+const customers = [
+  {
+    name: "Alice Smith",
+    function: "Designer",
+  },
+  {
+    name: "Bob Johnson",
+    function: "Project Manager",
+  },
+  {
+    name: "Charlie Brown",
+    function: "QA Engineer",
+  },
+  {
+    name: "Diana Prince",
+    function: "Frontend Developer",
+  },
+  {
+    name: "Ethan Hunt",
+    function: "Backend Developer",
+  },
+  {
+    name: "Fiona Gallagher",
+    function: "DevOps Engineer",
+  }
+];
+
 const animals = ["hen", "dog", "chick", "kitten", "veal", "horse"];
 
 const cards = ref<card[]>([])
 
-animals.map(item => cards.value.push({
+animals.map(item => cards.value.push(
+  {
   set: item,
   turned: false,
   hidden: false
-}));
+}
+));
 
 </script>
 
