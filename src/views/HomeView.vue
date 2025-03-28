@@ -2,11 +2,11 @@
 import { ref } from 'vue';
 
 type card = {
-card1:string;
-card2:string;
-turned: boolean;
-hidden: boolean;
-set? : string
+  set: string;
+  turned: boolean;
+  hidden: boolean;
+  card1?: string;
+  card2?: string;
 }
 
 const animals = ["hen", "dog", "chick", "kitten", "veal", "horse"];
@@ -14,8 +14,7 @@ const animals = ["hen", "dog", "chick", "kitten", "veal", "horse"];
 const cards = ref<card[]>([])
 
 animals.map(item => cards.value.push({
-  card1: item,
-  card2: item,
+  set: item,
   turned: false,
   hidden: false
 }));
@@ -24,9 +23,9 @@ animals.map(item => cards.value.push({
 
 <template>
   <main>
-<div v-for="card in cards" :key="card.card1">
-  <img :src="'/img/'+ card.card1 + '.webp'" :alt="card.card1">
+    <div v-for="card in cards" :key="card.set">
+      <img :src="'/img/' + card.set + '.webp'" :alt="card.set">
 
-</div>
+    </div>
   </main>
 </template>
