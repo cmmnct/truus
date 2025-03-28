@@ -82,8 +82,8 @@ const remind = (name: string) => {
 
 <template>
   <main>
-    <div v-for="card in cards" :key="card.set">
-      <img :src="'/img/' + card.set + '.webp'" :alt="card.set">
+    <div v-for="currentCard in cards" :key="currentCard.set" class="cardgrid">
+      <MemoryCard :card="currentCard" />
 
     </div>
     <div>
