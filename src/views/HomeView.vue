@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import MemoryCard from '../components/MemoryCard.vue';
+import { shuffle } from '@/utils/shuffle';
 
 export type card = {
   set: string;
@@ -33,6 +34,7 @@ onMounted(() => {
     .then(() => {
       // shuffle animals met fisher yates en verdubbel
       animals = [...animals, ...animals];
+      animals = shuffle(animals);
     })
     .then(() => {
       cards.value = [];
