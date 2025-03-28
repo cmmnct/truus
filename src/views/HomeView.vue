@@ -15,18 +15,21 @@ type customer = {
   invited?: boolean;
   confirmed?: boolean;
   declined?: boolean;
-  partner?: string;
-  allergies?: string[];
+  partner: string;
+  allergies : string[];
 }
 
 const customerdata = [
   {
     name: "Alice Smith",
     function: "Designer",
+    declined:true,
+    invited:true
   },
   {
     name: "Bob Johnson",
     function: "Project Manager",
+    confirmed:true
   },
   {
     name: "Charlie Brown",
@@ -51,9 +54,9 @@ customerdata.map(item => customers.value.push(
   {
     name: item.name,
     function: item.function,
-    invited: false,
-    confirmed: false,
-    declined: false,
+    invited: item.invited || false,
+    confirmed: item.confirmed || false,
+    declined: item.declined ||false,
     partner: "",
     allergies: []
   }
@@ -70,6 +73,10 @@ animals.map(item => cards.value.push(
   hidden: false
 }
 ));
+
+const remind = (name: string) => {
+  alert(`Reminder sent to ${name}`);
+}
 
 </script>
 
