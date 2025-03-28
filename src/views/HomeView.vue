@@ -29,6 +29,12 @@ onMounted(() => {
     .then(response => response.json())
     .then(data => {
       animals = data;
+    })
+    .then(() => {
+      // shuffle animals met fisher yates en verdubbel
+      animals = [...animals, ...animals];
+    })
+    .then(() => {
       cards.value = [];
       animals.map(item => cards.value.push(
         {
