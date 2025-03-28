@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import MemoryCard from '../components/MemoryCard.vue';
 
-type card = {
+export type card = {
   set: string;
   turned: boolean;
   hidden: boolean;
@@ -9,7 +10,7 @@ type card = {
   card2?: string;
 }
 
-type customer = {
+export type customer = {
   name: string;
   function: string;
   invited?: boolean;
@@ -82,9 +83,8 @@ const remind = (name: string) => {
 
 <template>
   <main>
-    <div v-for="currentCard in cards" :key="currentCard.set" class="cardgrid">
-      <MemoryCard :card="currentCard" />
-
+    <div class="cardgrid">
+      <MemoryCard v-for="currentCard in cards" :key="currentCard.set" :MemoryCard="currentCard" />
     </div>
     <div>
       <table>
